@@ -1,0 +1,26 @@
+## ---- Imports ---- ##
+import time
+import board
+from digitalio import Pull
+from piper_blockly import *
+
+## ---- Definitions ---- ##
+
+GP14 = piperPin(board.GP14, "GP14")
+
+try:
+  set_digital_view(True)
+except:
+  pass
+
+GP15 = piperPin(board.GP15, "GP15")
+
+
+## ---- Code ---- ##
+while True:
+  if GP14.checkPin(None):
+    GP15.setPin(1)
+  else:
+    GP15.setPin(0)
+
+  time.sleep(0.5)
